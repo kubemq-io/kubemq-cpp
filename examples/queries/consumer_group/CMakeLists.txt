@@ -1,0 +1,4 @@
+add_executable(example_queries_consumer_group main.cc)
+target_link_libraries(example_queries_consumer_group PRIVATE kubemq_static)
+target_compile_options(example_queries_consumer_group PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_queries_consumer_group PROPERTIES OUTPUT_NAME main)

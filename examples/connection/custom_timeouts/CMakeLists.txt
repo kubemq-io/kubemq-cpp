@@ -1,0 +1,4 @@
+add_executable(example_connection_custom_timeouts main.cc)
+target_link_libraries(example_connection_custom_timeouts PRIVATE kubemq_static)
+target_compile_options(example_connection_custom_timeouts PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_connection_custom_timeouts PROPERTIES OUTPUT_NAME main)

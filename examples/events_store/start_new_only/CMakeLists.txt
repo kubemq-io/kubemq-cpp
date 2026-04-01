@@ -1,0 +1,4 @@
+add_executable(example_events_store_start_new_only main.cc)
+target_link_libraries(example_events_store_start_new_only PRIVATE kubemq_static)
+target_compile_options(example_events_store_start_new_only PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_events_store_start_new_only PROPERTIES OUTPUT_NAME main)

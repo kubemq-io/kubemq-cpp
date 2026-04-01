@@ -1,0 +1,4 @@
+add_executable(example_patterns_work_queue main.cc)
+target_link_libraries(example_patterns_work_queue PRIVATE kubemq_static)
+target_compile_options(example_patterns_work_queue PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_patterns_work_queue PROPERTIES OUTPUT_NAME main)

@@ -39,3 +39,39 @@
 
 # debug information files
 *.dwo
+
+# Build directories
+build/
+_deps/
+out/
+
+# Generated protobuf files
+*.pb.h
+*.pb.cc
+*.grpc.pb.h
+*.grpc.pb.cc
+
+# CMake
+CMakeUserPresets.json
+compile_commands.json
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+
+# IDE / Editor
+.cache/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# vcpkg
+vcpkg_installed/
+
+# Conan
+conan_provider.cmake

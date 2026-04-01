@@ -1,0 +1,41 @@
+{
+  "name": "kubemq-cpp",
+  "version": "1.0.0",
+  "description": "High-performance C++17 client SDK for KubeMQ message broker",
+  "homepage": "https://kubemq.io",
+  "license": "Apache-2.0",
+  "dependencies": [
+    {
+      "name": "grpc",
+      "version>=": "1.78"
+    },
+    {
+      "name": "protobuf",
+      "version>=": "5.29"
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11"
+    }
+  ],
+  "features": {
+    "tests": {
+      "description": "Build unit and integration tests",
+      "dependencies": [
+        {
+          "name": "gtest",
+          "version>=": "1.14"
+        }
+      ]
+    },
+    "burnin": {
+      "description": "Build burn-in soak test application",
+      "dependencies": [
+        {
+          "name": "cpp-httplib",
+          "version>=": "0.15"
+        }
+      ]
+    }
+  }
+}

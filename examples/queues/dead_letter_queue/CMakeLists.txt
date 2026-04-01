@@ -1,0 +1,4 @@
+add_executable(example_queues_dead_letter_queue main.cc)
+target_link_libraries(example_queues_dead_letter_queue PRIVATE kubemq_static)
+target_compile_options(example_queues_dead_letter_queue PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_queues_dead_letter_queue PROPERTIES OUTPUT_NAME main)

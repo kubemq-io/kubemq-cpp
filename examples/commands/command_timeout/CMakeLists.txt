@@ -1,0 +1,4 @@
+add_executable(example_commands_command_timeout main.cc)
+target_link_libraries(example_commands_command_timeout PRIVATE kubemq_static)
+target_compile_options(example_commands_command_timeout PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_commands_command_timeout PROPERTIES OUTPUT_NAME main)

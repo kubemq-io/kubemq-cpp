@@ -1,0 +1,4 @@
+add_executable(example_management_list_channels main.cc)
+target_link_libraries(example_management_list_channels PRIVATE kubemq_static)
+target_compile_options(example_management_list_channels PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_management_list_channels PROPERTIES OUTPUT_NAME main)
