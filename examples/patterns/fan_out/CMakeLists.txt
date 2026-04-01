@@ -1,0 +1,4 @@
+add_executable(example_patterns_fan_out main.cc)
+target_link_libraries(example_patterns_fan_out PRIVATE kubemq_static)
+target_compile_options(example_patterns_fan_out PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_patterns_fan_out PROPERTIES OUTPUT_NAME main)

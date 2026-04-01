@@ -1,0 +1,4 @@
+add_executable(example_commands_send_command main.cc)
+target_link_libraries(example_commands_send_command PRIVATE kubemq_static)
+target_compile_options(example_commands_send_command PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_commands_send_command PROPERTIES OUTPUT_NAME main)

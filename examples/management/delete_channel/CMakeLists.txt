@@ -1,0 +1,4 @@
+add_executable(example_management_delete_channel main.cc)
+target_link_libraries(example_management_delete_channel PRIVATE kubemq_static)
+target_compile_options(example_management_delete_channel PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_management_delete_channel PROPERTIES OUTPUT_NAME main)

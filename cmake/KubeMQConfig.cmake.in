@@ -1,0 +1,2 @@
+@PACKAGE_INIT@
+find_package(KubeMQCpp REQUIRED)

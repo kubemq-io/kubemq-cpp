@@ -1,0 +1,4 @@
+add_subdirectory(create_channel)
+add_subdirectory(list_channels)
+add_subdirectory(delete_channel)
+add_subdirectory(purge_queue)

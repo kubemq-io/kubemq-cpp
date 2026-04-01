@@ -1,0 +1,4 @@
+add_executable(example_queues_stream_poll_mode main.cc)
+target_link_libraries(example_queues_stream_poll_mode PRIVATE kubemq_static)
+target_compile_options(example_queues_stream_poll_mode PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_queues_stream_poll_mode PROPERTIES OUTPUT_NAME main)

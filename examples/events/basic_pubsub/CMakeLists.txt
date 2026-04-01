@@ -1,0 +1,4 @@
+add_executable(example_events_basic_pubsub main.cc)
+target_link_libraries(example_events_basic_pubsub PRIVATE kubemq_static)
+target_compile_options(example_events_basic_pubsub PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_events_basic_pubsub PROPERTIES OUTPUT_NAME main)

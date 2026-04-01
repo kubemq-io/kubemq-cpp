@@ -1,0 +1,5 @@
+add_subdirectory(ping)
+add_subdirectory(connect)
+add_subdirectory(close)
+add_subdirectory(custom_timeouts)
+add_subdirectory(token_auth)
