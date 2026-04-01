@@ -1,0 +1,6 @@
+add_subdirectory(basic_pubsub)
+add_subdirectory(stream_send)
+add_subdirectory(consumer_group)
+add_subdirectory(multiple_subscribers)
+add_subdirectory(wildcard_subscription)
+add_subdirectory(cancel_subscription)

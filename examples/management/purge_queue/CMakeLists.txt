@@ -1,0 +1,4 @@
+add_executable(example_management_purge_queue main.cc)
+target_link_libraries(example_management_purge_queue PRIVATE kubemq_static)
+target_compile_options(example_management_purge_queue PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_management_purge_queue PROPERTIES OUTPUT_NAME main)

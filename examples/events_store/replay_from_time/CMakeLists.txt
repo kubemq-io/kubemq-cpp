@@ -1,0 +1,4 @@
+add_executable(example_events_store_replay_from_time main.cc)
+target_link_libraries(example_events_store_replay_from_time PRIVATE kubemq_static)
+target_compile_options(example_events_store_replay_from_time PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_events_store_replay_from_time PROPERTIES OUTPUT_NAME main)

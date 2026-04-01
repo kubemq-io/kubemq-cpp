@@ -1,0 +1,4 @@
+add_executable(example_tls_tls_setup main.cc)
+target_link_libraries(example_tls_tls_setup PRIVATE kubemq_static)
+target_compile_options(example_tls_tls_setup PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_tls_tls_setup PROPERTIES OUTPUT_NAME main)

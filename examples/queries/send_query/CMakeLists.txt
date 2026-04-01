@@ -1,0 +1,4 @@
+add_executable(example_queries_send_query main.cc)
+target_link_libraries(example_queries_send_query PRIVATE kubemq_static)
+target_compile_options(example_queries_send_query PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_queries_send_query PROPERTIES OUTPUT_NAME main)

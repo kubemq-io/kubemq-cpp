@@ -1,0 +1,7 @@
+add_subdirectory(send_receive)
+add_subdirectory(batch_send)
+add_subdirectory(peek_messages)
+add_subdirectory(ack_all)
+add_subdirectory(ack_reject)
+add_subdirectory(delayed_messages)
+add_subdirectory(dead_letter_queue)

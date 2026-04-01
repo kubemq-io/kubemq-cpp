@@ -1,0 +1,4 @@
+add_executable(example_events_wildcard_subscription main.cc)
+target_link_libraries(example_events_wildcard_subscription PRIVATE kubemq_static)
+target_compile_options(example_events_wildcard_subscription PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_events_wildcard_subscription PROPERTIES OUTPUT_NAME main)

@@ -1,0 +1,4 @@
+add_executable(example_connection_ping main.cc)
+target_link_libraries(example_connection_ping PRIVATE kubemq_static)
+target_compile_options(example_connection_ping PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_connection_ping PROPERTIES OUTPUT_NAME main)

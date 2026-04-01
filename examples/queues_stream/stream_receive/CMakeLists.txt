@@ -1,0 +1,4 @@
+add_executable(example_queues_stream_stream_receive main.cc)
+target_link_libraries(example_queues_stream_stream_receive PRIVATE kubemq_static)
+target_compile_options(example_queues_stream_stream_receive PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_queues_stream_stream_receive PROPERTIES OUTPUT_NAME main)

@@ -1,0 +1,4 @@
+add_executable(example_patterns_request_reply main.cc)
+target_link_libraries(example_patterns_request_reply PRIVATE kubemq_static)
+target_compile_options(example_patterns_request_reply PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_patterns_request_reply PROPERTIES OUTPUT_NAME main)

@@ -1,0 +1,4 @@
+add_executable(example_error_handling_connection_error main.cc)
+target_link_libraries(example_error_handling_connection_error PRIVATE kubemq_static)
+target_compile_options(example_error_handling_connection_error PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_error_handling_connection_error PROPERTIES OUTPUT_NAME main)

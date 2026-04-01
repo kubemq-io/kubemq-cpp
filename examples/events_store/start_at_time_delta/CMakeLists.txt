@@ -1,0 +1,4 @@
+add_executable(example_events_store_start_at_time_delta main.cc)
+target_link_libraries(example_events_store_start_at_time_delta PRIVATE kubemq_static)
+target_compile_options(example_events_store_start_at_time_delta PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_events_store_start_at_time_delta PROPERTIES OUTPUT_NAME main)

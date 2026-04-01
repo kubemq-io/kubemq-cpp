@@ -1,0 +1,4 @@
+add_executable(example_error_handling_reconnection main.cc)
+target_link_libraries(example_error_handling_reconnection PRIVATE kubemq_static)
+target_compile_options(example_error_handling_reconnection PRIVATE -Wall -Wextra -Wpedantic)
+set_target_properties(example_error_handling_reconnection PROPERTIES OUTPUT_NAME main)

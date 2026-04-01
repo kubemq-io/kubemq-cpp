@@ -1,0 +1,60 @@
+# Doxyfile for KubeMQ C++ SDK
+
+PROJECT_NAME           = "KubeMQ C++ SDK"
+PROJECT_NUMBER         = 1.0.0
+PROJECT_BRIEF          = "C++ Client SDK for KubeMQ Message Broker"
+OUTPUT_DIRECTORY       = docs
+
+# Input
+INPUT                  = include/kubemq
+FILE_PATTERNS          = *.h
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */internal/*
+
+# Output
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+HTML_COLORSTYLE        = LIGHT
+
+# Extraction
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = NO
+
+# Preprocessing
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+PREDEFINED             = KUBEMQ_API= \
+                         KUBEMQ_STATIC
+
+# Source browsing
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = YES
+
+# Index
+ALPHABETICAL_INDEX     = YES
+FULL_PATH_NAMES        = NO
+
+# Diagrams
+HAVE_DOT               = NO
+CLASS_DIAGRAMS         = YES
+
+# Warnings
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = YES
+EXAMPLE_PATH           = examples
+EXAMPLE_RECURSIVE      = YES
+EXAMPLE_PATTERNS       = *.cc
+
+# Misc
+QUIET                  = YES
+JAVADOC_AUTOBRIEF      = YES
+TAB_SIZE               = 4
+OPTIMIZE_OUTPUT_FOR_C  = NO
+BUILTIN_STL_SUPPORT    = YES
+SORT_MEMBER_DOCS       = YES
+SORT_BRIEF_DOCS        = YES
