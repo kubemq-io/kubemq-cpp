@@ -49,14 +49,52 @@ int main(int argc, char* argv[]) {
     std::signal(SIGINT, SignalHandler);
     std::signal(SIGTERM, SignalHandler);
 
-    // Parse configuration from environment variables
-    std::string broker_address = GetEnv("KUBEMQ_BROKER_ADDRESS",
-                                        burnin::defaults::kDefaultBrokerAddress);
-    int http_port = GetEnvInt("PORT", burnin::defaults::kDefaultHttpPort);
+    // --- CLI argument parsing (manual, no library needed) ---
+    std::string config_path;
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        if ((arg == "--config" || arg == "-config") && i + 1 < argc) {
+            config_path = argv[++i];
+        }
+    }
+
+    // --- Resolve broker address and HTTP port ---
+    // Priority for broker:  KUBEMQ_BROKER_ADDRESS env > YAML broker.address > default
+    // Priority for port:    YAML metrics.port > PORT env var > kDefaultHttpPort
+    std::string broker_address = GetEnv("KUBEMQ_BROKER_ADDRESS", "");
+    int http_port = 0;
+
+    if (!config_path.empty()) {
+        std::vector<std::string> yaml_warnings;
+        burnin::Config yaml_cfg = burnin::Config::LoadFromYaml(config_path, yaml_warnings);
+
+        for (const auto& w : yaml_warnings) {
+            std::cerr << w << "\n";
+        }
+
+        if (yaml_cfg.metrics_port > 0) {
+            http_port = yaml_cfg.metrics_port;
+        }
+        // Use YAML broker address only if env var was not set
+        if (broker_address.empty() && !yaml_cfg.broker_address.empty()) {
+            broker_address = yaml_cfg.broker_address;
+        }
+    }
+
+    // Fall back: broker address
+    if (broker_address.empty()) {
+        broker_address = burnin::defaults::kDefaultBrokerAddress;
+    }
+
+    // Fall back: port  →  PORT env var  →  kDefaultHttpPort
+    if (http_port <= 0) {
+        http_port = GetEnvInt("PORT", burnin::defaults::kDefaultHttpPort);
+    }
 
     std::cout << "[main] Configuration:\n"
               << "  Broker:    " << broker_address << "\n"
               << "  HTTP Port: " << http_port << "\n"
+              << "  Config:    " << (config_path.empty() ? "(env/defaults)" : config_path) << "\n"
               << "  SDK:       kubemq-cpp v1.0.0\n\n";
 
     // Create engine

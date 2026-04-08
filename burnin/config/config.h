@@ -51,6 +51,9 @@ struct Config {
     // Queue-specific settings
     QueueConfig queue;
 
+    // HTTP metrics server port (overridable via YAML config or PORT env var)
+    int metrics_port = 0;  // 0 means "not set from config"; resolved at startup
+
     // Warnings from parsing
     std::vector<std::string> warnings;
 
@@ -59,6 +62,12 @@ struct Config {
 
     // Parse from JSON string
     static Config FromJson(const std::string& json_str);
+
+    // Load startup config from a YAML file (metrics.port, broker.address).
+    // Returns true on success; on failure writes a warning to warnings and
+    // leaves fields at their default/zero values.
+    static Config LoadFromYaml(const std::string& path,
+                               std::vector<std::string>& warnings);
 
     // Serialize to JSON
     nlohmann::json ToJson() const;

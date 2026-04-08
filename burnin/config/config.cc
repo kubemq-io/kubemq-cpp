@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <random>
 
+#include <yaml-cpp/yaml.h>
+
 namespace burnin {
 
 // Parse a duration string like "5m", "1h", "30s", "2d" to seconds.
@@ -230,6 +232,36 @@ std::string GenerateRunId() {
     char buf[9];
     std::snprintf(buf, sizeof(buf), "%08x", dist(gen));
     return std::string(buf);
+}
+
+// --- YAML startup config loader ---
+
+Config Config::LoadFromYaml(const std::string& path,
+                             std::vector<std::string>& warnings) {
+    Config cfg;
+    // Do NOT call SetDefaults() here — metrics_port stays 0 so the caller can
+    // distinguish "not set in YAML" from an explicit value.
+
+    try {
+        YAML::Node root = YAML::LoadFile(path);
+
+        // metrics.port
+        if (root["metrics"] && root["metrics"]["port"]) {
+            cfg.metrics_port = root["metrics"]["port"].as<int>();
+        }
+
+        // broker.address (optional)
+        if (root["broker"] && root["broker"]["address"]) {
+            cfg.broker_address = root["broker"]["address"].as<std::string>();
+        }
+
+    } catch (const YAML::Exception& e) {
+        warnings.push_back(std::string("[config] YAML load failed for '") +
+                           path + "': " + e.what() +
+                           " — falling back to defaults");
+    }
+
+    return cfg;
 }
 
 }  // namespace burnin
