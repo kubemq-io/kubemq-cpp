@@ -35,6 +35,7 @@ endif()
 
 if(KUBEMQ_BUILD_BURNIN)
     find_package(httplib CONFIG REQUIRED)
+    find_package(yaml-cpp REQUIRED)
 endif()
 
 # Proto codegen

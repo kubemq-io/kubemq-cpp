@@ -41,7 +41,7 @@ constexpr int kDefaultPollWaitTimeoutSeconds = 5;
 constexpr bool kDefaultAutoAck = false;
 
 // HTTP server default port
-constexpr int kDefaultHttpPort = 9090;
+constexpr int kDefaultHttpPort = 8888;
 
 // Payload size (bytes)
 constexpr int kDefaultPayloadSize = 256;
