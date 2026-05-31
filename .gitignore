@@ -75,3 +75,6 @@ vcpkg_installed/
 
 # Conan
 conan_provider.cmake
+
+# Burn-in compiled binary (extensionless)
+/burnin/burnin
