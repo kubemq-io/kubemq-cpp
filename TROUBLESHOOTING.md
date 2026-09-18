@@ -123,7 +123,7 @@ TRANSIENT: failed to connect to all addresses
 **Solution:**
 1. Verify the KubeMQ server is running:
    ```bash
-   docker run -d -p 50000:50000 kubemq/kubemq
+   docker run -d -p 50000:50000 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest
    ```
 2. Check the address and port:
    ```cpp

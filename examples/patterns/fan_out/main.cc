@@ -9,7 +9,7 @@
 // Client ID: cpp-patterns-fan-out-client
 //
 // Run with a KubeMQ server on localhost:50000
-// (e.g., docker run -d -p 50000:50000 kubemq/kubemq).
+// (e.g., docker run -d -p 50000:50000 europe-docker.pkg.dev/kubemq/images/kubemq-next:latest).
 
 #include <kubemq/kubemq.h>
 
